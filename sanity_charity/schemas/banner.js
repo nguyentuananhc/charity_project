@@ -27,8 +27,8 @@ export default {
       },
     },
     {
-      name: "desc",
-      title: "Desc",
+      name: "description",
+      title: "Description",
       type: "string",
     },
   ],
