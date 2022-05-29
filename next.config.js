@@ -66,6 +66,9 @@ module.exports = withBundleAnalyzer({
       },
     ]
   },
+  images: {
+    domains: ['cdn.sanity.io'],
+  },
   webpack: (config, { dev, isServer }) => {
     config.module.rules.push({
       test: /\.svg$/,
