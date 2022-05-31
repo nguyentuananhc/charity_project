@@ -1,6 +1,6 @@
 import groq from 'groq'
 import { client } from '@/lib/client'
-import PostLayout from 'layout/PostLayout'
+import PostLayout from '@/layouts/PostLayout'
 
 const Project = ({ project }) => {
   return <PostLayout post={project} />
