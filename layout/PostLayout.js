@@ -9,10 +9,24 @@ import { urlFor } from '@/lib/client'
 
 const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
 
+// const PostComponents = {
+//   types: {
+//     image: ({ value }) => {
+//       const { asset, alt, caption } = value
+//       const { url } = urlFor(asset).width(1200).url()
+//       console.log(url)
+//       return <Image className="mb-4" src={url} alt={alt} caption={caption} layout="responsive" />
+//     },
+//   },
+// }
+
 const PostComponents = {
-  type: {
+  types: {
     image: ({ value }) => {
-      return <img src={urlFor(value)} alt={value.alt} />
+      const image = value.asset
+      const imageUrl = urlFor(image).width(600).url()
+      // eslint-disable-next-line @next/next/no-img-element
+      return <img src={urlFor(value)} alt={image.alt} />
     },
   },
 }

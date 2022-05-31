@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Link from '@/components/Link'
 
 export default function FourZeroFour() {
