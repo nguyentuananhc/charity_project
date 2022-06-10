@@ -3,7 +3,7 @@ import Link from './Link'
 import { useNextSanityImage } from 'next-sanity-image'
 import { client } from '@/lib/client'
 
-const Card = ({ title, description, imgSrc, slug }) => {
+const Card = ({ title, description, imgSrc, slug, page }) => {
   const imageProps = useNextSanityImage(client, imgSrc)
   return (
     <div className="p-4 md md:w-1/2" style={{ maxWidth: '544px' }}>
@@ -24,7 +24,7 @@ const Card = ({ title, description, imgSrc, slug }) => {
         <div className="p-6">
           <h2 className="mb-3 text-2xl font-bold leading-8 tracking-tight">
             {slug ? (
-              <Link href={`/projects/${slug?.current}`} aria-label={`Link to ${title}`}>
+              <Link href={`/${page}/${slug?.current}`} aria-label={`Link to ${title}`}>
                 {title}
               </Link>
             ) : (
@@ -34,7 +34,7 @@ const Card = ({ title, description, imgSrc, slug }) => {
           <p className="mb-3 prose text-gray-500 max-w-none dark:text-gray-400">{description}</p>
           {slug && (
             <Link
-              href={`/projects/${slug?.current}`}
+              href={`/${page}/${slug?.current}`}
               className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
               aria-label={`Link to ${title}`}
             >

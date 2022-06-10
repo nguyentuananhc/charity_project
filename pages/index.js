@@ -1,5 +1,5 @@
 import React from 'react'
-import { client } from '../lib/client'
+import { client } from '@/lib/client'
 
 const Home = ({ author }) => {
   console.log(author)

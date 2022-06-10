@@ -2,6 +2,7 @@ import { client } from '@/lib/client'
 import Card from '@/components/Card'
 
 export default function Blogs({ blogs }) {
+  console.log()
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -22,6 +23,7 @@ export default function Blogs({ blogs }) {
                 description={d.description}
                 imgSrc={d.image && d.image[0]}
                 slug={d.slug}
+                page={'blogs'}
               />
             ))}
           </div>

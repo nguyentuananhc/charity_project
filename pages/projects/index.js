@@ -2,7 +2,6 @@ import { client } from '@/lib/client'
 import Card from '@/components/Card'
 
 export default function Projects({ projects }) {
-  console.log(projects)
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -23,6 +22,7 @@ export default function Projects({ projects }) {
                 description={d.description}
                 imgSrc={d.image && d.image[0]}
                 slug={d.slug}
+                page={'projects'}
               />
             ))}
           </div>

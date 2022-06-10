@@ -33,7 +33,8 @@ const PostComponents = {
 
 export default function PostLayout({ post }) {
   console.log(post)
-  const { name, publishAt, description, content } = post
+  const { name, publishAt, description, content, _createdAt, author } = post
+  console.log(post)
   return (
     <SectionContainer>
       <ScrollTopAndComment />
@@ -45,8 +46,8 @@ export default function PostLayout({ post }) {
                 <div>
                   <dt className="sr-only">Published on</dt>
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <time dateTime={publishAt}>
-                      {new Date(publishAt).toLocaleDateString(
+                    <time dateTime={publishAt || _createdAt}>
+                      {new Date(publishAt || _createdAt).toLocaleDateString(
                         siteMetadata.locale,
                         postDateTemplate
                       )}
@@ -60,7 +61,7 @@ export default function PostLayout({ post }) {
             </div>
           </header>
           <div
-            className="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
+            className="pb-8 divide-y divide-gray-200 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
             style={{ gridTemplateRows: 'auto 1fr' }}
           >
             <dl className="pt-6 pb-10 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
@@ -75,10 +76,10 @@ export default function PostLayout({ post }) {
                           width="38px"
                           height="38px"
                           alt="avatar"
-                          className="h-10 w-10 rounded-full"
+                          className="w-10 h-10 rounded-full"
                         />
                       )}
-                      <dl className="whitespace-nowrap text-sm font-medium leading-5">
+                      <dl className="text-sm font-medium leading-5 whitespace-nowrap">
                         <dt className="sr-only">Name</dt>
                         <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
                         <dt className="sr-only">Twitter</dt>
@@ -90,7 +91,7 @@ export default function PostLayout({ post }) {
               </dd>
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">
+              <div className="pt-10 pb-8 prose max-w-none dark:prose-dark">
                 <PortableText value={content} components={PostComponents} />
               </div>
             </div>
